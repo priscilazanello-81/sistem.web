@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Clínica Bem Viver</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #d0e2d4;
+      color: #2b3730;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 6%;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      color: #2e6b55;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 0.9rem;
+      margin-left: 1.5rem;
+    }
+
+    nav a.btn {
+      background: #2e6b55;
+      color: #fff;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 5rem 6%;
+      background: #f7faf9;
+    }
+
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: 2.4rem;
+      color: #2e6b55;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: #666;
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .hero a {
+      background: #2e6b55;
+      color: #d5f3d5;
+      text-decoration: none;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .hero img {
+      display: block;
+      width: 100%;
+      max-width: 700px;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 2.5rem auto 0;
+    }
+
+    /* SEÇÕES */
+    section {
+      padding: 4rem 6%;
+    }
+
+    h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.7rem;
+      color: #2e6b55;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitulo {
+      color: #888;
+      font-size: 0.92rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* SERVIÇOS */
+    #servicos { background: #fff; }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .servico {
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .servico span {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .servico h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #222;
+    }
+
+    .servico p {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    /* SOBRE */
+    #sobre {
+      background: #f7faf9;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .sobre-fotos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .sobre-fotos img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .sobre-fotos img:first-child {
+      border-radius: 10px 10px 10px 40px;
+    }
+
+    .sobre-fotos img:last-child {
+      border-radius: 10px 10px 40px 10px;
+    }
+
+    #sobre p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.75;
+      margin-top: 1rem;
+    }
+
+    /* EQUIPE */
+    #equipe { background: #fff; }
+
+    .equipe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .membro {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      border: 1px solid #eee;
+      border-radius: 10px;
+    }
+
+    .avatar {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 1rem;
+      border: 3px solid #e8e8e8;
+    }
+
+    .membro h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .membro .cargo {
+      font-size: 0.8rem;
+      color: #c2714f;
+      margin-bottom: 0.5rem;
+    }
+
+    .membro p {
+      font-size: 0.82rem;
+      color: #777;
+      line-height: 1.55;
+    }
+
+    /* FORMULÁRIO */
+    #contato { background: #d0e2d4; }
+
+    form {
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #2e6b55;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    textarea { min-height: 100px; resize: vertical; }
+
+    form button {
+      background: #2e6b55;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #2e6b55;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.82rem;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<!-- NAVEGAÇÃO -->
+<nav>
+  <div class="logo">Clínica Bem Viver</div>
+  <div>
+    <a href="#servicos">Serviços</a>
+    <a href="#equipe">Equipe</a>
+    <a href="#contato" class="btn">Agendar</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Saúde com cuidado e atenção</h1>
+  <p>Atendimento humanizado com profissionais especializados. Sua saúde é nossa prioridade desde 2010.</p>
+  <a href="#contato">Agendar Consulta</a>
+  <img
+    src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=900&auto=format&fit=crop&q=80"
+    alt="Interior da Clínica Bem Viver"
+  />
+</div>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <h2>Nossos Serviços</h2>
+  <p class="subtitulo">Especialidades disponíveis para você e sua família</p>
+  <div class="servicos-grid">
+    <div class="servico">
+      <span>🩺</span>
+      <h3>Clínica Geral</h3>
+      <p>Consultas de rotina e acompanhamento de saúde.</p>
+    </div>
+    <div class="servico">
+      <span>🧠</span>
+      <h3>Saúde Mental</h3>
+      <p>Psicologia e psiquiatria com atendimento acolhedor.</p>
+    </div>
+    <div class="servico">
+      <span>🍎</span>
+      <h3>Nutrição</h3>
+      <p>Planos alimentares personalizados para cada fase.</p>
+    </div>
+    <div class="servico">
+      <span>🏃</span>
+      <h3>Fisioterapia</h3>
+      <p>Reabilitação e tratamento de dores musculares.</p>
+    </div>
+    <div class="servico">
+      <span>🦷</span>
+      <h3>Odontologia</h3>
+      <p>Prevenção e estética dental com tecnologia.</p>
+    </div>
+    <div class="servico">
+      <span>🔬</span>
+      <h3>Laboratório</h3>
+      <p>Exames com resultados rápidos e precisos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-fotos">
+    <img
+      src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=600&auto=format&fit=crop&q=80"
+      alt="Recepção sofisticada da Clínica Bem Viver"
+    />
+    <img
+      src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=600&auto=format&fit=crop&q=80"
+      alt="Consultório elegante da Clínica Bem Viver"
+    />
+  </div>
+  <div>
+    <h2>Sobre a Clínica</h2>
+    <p>Fundada em 2010, a Clínica Bem Viver nasceu com o propósito de oferecer saúde de qualidade com atendimento humanizado.</p>
+    <p style="margin-top:0.8rem">Contamos com prontuário eletrônico, teleconsulta e agendamento online para facilitar seu cuidado.</p>
+  </div>
+</section>
+
+<!-- EQUIPE -->
+<section id="equipe">
+  <h2>Nossa Equipe</h2>
+  <p class="subtitulo">Profissionais dedicados ao seu bem-estar</p>
+  <div class="equipe-grid">
+    <div class="membro">
+      <img class="avatar" src="https://xsgames.co/randomusers/assets/avatars/female/44.jpg" alt="Dra. Ana Cardoso" />
+      <h3>Dra. Ana Cardoso</h3>
+      <div class="cargo">Cardiologista</div>
+      <p>18 anos de experiência em cardiologia preventiva.</p>
+    </div>
+    <div class="membro">
+      <img class="avatar" src="https://xsgames.co/randomusers/assets/avatars/male/36.jpg" alt="Dr. Rafael Monteiro" />
+      <h3>Dr. Rafael Monteiro</h3>
+      <div class="cargo">Clínico Geral</div>
+      <p>Especialista em saúde da família e medicina preventiva.</p>
+    </div>
+    <div class="membro">
+      <img class="avatar" src="https://xsgames.co/randomusers/assets/avatars/female/28.jpg" alt="Dra. Juliana Santos" />
+      <h3>Dra. Juliana Santos</h3>
+      <div class="cargo">Psicóloga</div>
+      <p>Atendimento baseado em evidências para adultos e adolescentes.</p>
+    </div>
+    <div class="membro">
+      <img class="avatar" src="https://xsgames.co/randomusers/assets/avatars/male/52.jpg" alt="Dr. Pedro Oliveira" />
+      <h3>Dr. Pedro Oliveira</h3>
+      <div class="cargo">Fisioterapeuta</div>
+      <p>Especialista em reabilitação esportiva e dores crônicas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <h2>Agende sua Consulta</h2>
+  <p class="subtitulo">Preencha o formulário e entraremos em contato</p>
+  <form>
+    <div>
+      <label for="nome">Nome completo</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome" />
+    </div>
+    <div>
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="seu@email.com" />
+    </div>
+    <div class="form-row">
+      <div>
+        <label for="cidade">Cidade</label>
+        <input type="text" id="cidade" name="cidade" placeholder="Sua cidade" />
+      </div>
+      <div>
+        <label for="estado">Estado</label>
+        <select id="estado" name="estado">
+          <option value="">Selecione...</option>
+          <option>AC</option><option>AL</option><option>AM</option><option>AP</option>
+          <option>BA</option><option>CE</option><option selected>DF</option><option>ES</option>
+          <option>GO</option><option>MA</option><option>MG</option><option>MS</option>
+          <option>MT</option><option>PA</option><option>PB</option><option>PE</option>
+          <option>PI</option><option>PR</option><option>RJ</option><option>RN</option>
+          <option>RO</option><option>RR</option><option>RS</option><option>SC</option>
+          <option>SE</option><option>SP</option><option>TO</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <label for="mensagem">Mensagem (opcional)</label>
+      <textarea id="mensagem" name="mensagem" placeholder="Como podemos ajudar?"></textarea>
+    </div>
+    <button type="button">Enviar →</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Clínica Bem Viver — Brasília, DF &nbsp;|&nbsp; (61) 3344-5566
+</footer>
+
+</body>
+</html>
+
