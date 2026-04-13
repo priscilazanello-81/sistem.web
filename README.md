@@ -1,6 +1,6 @@
 # sistem.web
 
-SISKTEMATIZAÇÃO WEB
+SISTEMATIZAÇÃO WEB
 
 INTRODUÇÃO
 
